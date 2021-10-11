@@ -1,18 +1,27 @@
 import random
 
-random_num = random.randint(1, 100)
+
+START_PLACEHOLDER = "Try to quess the number from 0 to 100:"
+TO_MUCH_RESULT = "To much"
+TO_LESS_RESULT = "To less"
+
+
 counter = 1
 ansver = False
+random_num = random.randint(1, 100)
+
+
 while ansver != random_num:
-    ansver = int(input('Try to quess the number from 0 to 100:'))
+    TRY = "Try #{0}: {1}".format(counter, ansver)
+    ansver = int(input(START_PLACEHOLDER))
     if ansver > random_num:
-        print("Try #%s: %s" % (counter, ansver))
-        print("To much")
+        print(TRY)
+        print(TO_MUCH_RESULT)
         counter += 1
     elif ansver < random_num:
-        print("Try #%s: %s" % (counter, ansver))
-        print("To less")
+        print(TRY)
+        print(TO_LESS_RESULT)
         counter += 1
     else:
-        print("You have guessed from %s try" % counter)
-        print("%s is true" % random_num)
+        print("You have guessed from {} try".format(counter))
+        print("{} is true".format(random_num))
